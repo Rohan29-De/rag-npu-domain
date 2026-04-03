@@ -1,10 +1,10 @@
-# 🧠 NPU Domain RAG System
+#  NPU Domain RAG System
 
 A production-quality **Retrieval-Augmented Generation (RAG)** system built on a specialized dataset about the **History and Architecture of Neural Processing Units (NPUs)**. Powered by Groq's ultra-fast LLaMA 3.3 70B, FAISS vector search, and a custom multi-metric evaluation framework.
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```
 rag-npu-domain/
@@ -35,7 +35,7 @@ rag-npu-domain/
 
 ---
 
-## 🎯 Chosen Domain & Dataset
+##  Chosen Domain & Dataset
 
 **Domain:** History and Architecture of Neural Processing Units (NPUs)
 
@@ -96,7 +96,7 @@ USER:   CONTEXT: [numbered chunks with source labels and scores]
 
 ---
 
-## 📊 Evaluation Framework
+##  Evaluation Framework
 
 The evaluation framework (`src/evaluator.py`) runs all 15 QA pairs through the RAG pipeline and computes five metrics per question, producing a CSV report and console summary.
 
@@ -178,7 +178,7 @@ A `qualitative_avg` column is added to the results CSV for analysis.
 
 ---
 
-## 📈 Sample Evaluation Results
+##  Sample Evaluation Results
 
 *(Representative results from a sample run — your results will vary slightly)*
 
@@ -199,7 +199,7 @@ A `qualitative_avg` column is added to the results CSV for analysis.
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone & Install
 
@@ -257,7 +257,7 @@ jupyter lab demo.ipynb
 
 ---
 
-## ⚠️ Challenges & Lessons Learned
+##  Challenges & Lessons Learned
 
 ### 1. Chunk Size vs. Retrieval Precision
 **Challenge:** Large chunks improved answer quality but hurt retrieval precision — a chunk about "architecture" might contain enough text on other topics to rank for unrelated queries.  
@@ -281,7 +281,7 @@ jupyter lab demo.ipynb
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Component | Technology |
 |-----------|-----------|
@@ -294,7 +294,3 @@ jupyter lab demo.ipynb
 | Demo | `jupyterlab`, `matplotlib`, `seaborn` |
 
 ---
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
