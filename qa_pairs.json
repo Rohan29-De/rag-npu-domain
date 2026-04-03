@@ -1,0 +1,92 @@
+[
+  {
+    "id": "q1",
+    "question": "Who coined the term 'neuromorphic engineering' and when?",
+    "expected_answer": "Carver Mead at Caltech coined the term neuromorphic engineering in 1990.",
+    "source_doc": "doc1_npu_origins"
+  },
+  {
+    "id": "q2",
+    "question": "What was the Intel ETANN chip and what was its key specification?",
+    "expected_answer": "The Intel 80170NX ETANN (Electrically Trainable Analog Neural Network), released in 1989, featured 64 neurons and 10,240 programmable synaptic weights and could perform 2 billion multiply-accumulate operations per second.",
+    "source_doc": "doc1_npu_origins"
+  },
+  {
+    "id": "q3",
+    "question": "What NPU did Apple introduce in 2017 and what was its performance?",
+    "expected_answer": "Apple introduced the Neural Engine with the A11 Bionic chip in 2017. It was a 2-core unit that could perform 600 billion operations per second and was used for Face ID and augmented reality applications.",
+    "source_doc": "doc1_npu_origins"
+  },
+  {
+    "id": "q4",
+    "question": "What is a systolic array and how does it work in an NPU?",
+    "expected_answer": "A systolic array is a grid of processing elements (PEs) where data flows rhythmically from one PE to the next. Each PE performs a multiply-accumulate (MAC) operation. Google's TPU v1 used a 256x256 systolic array, yielding 65,536 MAC operations per clock cycle.",
+    "source_doc": "doc2_npu_architecture"
+  },
+  {
+    "id": "q5",
+    "question": "What is weight stationary dataflow in NPU architecture?",
+    "expected_answer": "Weight stationary dataflow is a property where weights are loaded once into the systolic array and reused across many input activations, dramatically reducing memory bandwidth pressure.",
+    "source_doc": "doc2_npu_architecture"
+  },
+  {
+    "id": "q6",
+    "question": "What is Apple's Unified Memory Architecture and why is it significant for NPUs?",
+    "expected_answer": "Apple's Unified Memory Architecture (UMA), introduced with the M1 chip in 2020, allows the Neural Engine, CPU, and GPU to share the same high-bandwidth LPDDR5 memory pool without copying data across discrete buses, eliminating a major bottleneck in heterogeneous AI workloads.",
+    "source_doc": "doc2_npu_architecture"
+  },
+  {
+    "id": "q7",
+    "question": "What is the Google TPU v4 and what interconnect does it use?",
+    "expected_answer": "The TPU v4 (2021) reached 275 teraflops of bfloat16 performance and introduced the Inter-chip Interconnect (ICI), a high-speed optical network linking 4,096 TPU chips into a single logical accelerator called a TPU pod.",
+    "source_doc": "doc3_datacenter_npus"
+  },
+  {
+    "id": "q8",
+    "question": "What is the Cerebras Wafer Scale Engine and what makes it unique?",
+    "expected_answer": "The Cerebras Wafer Scale Engine (WSE) is a single die the size of an entire silicon wafer containing 900,000 AI cores connected by an on-wafer fabric with 220 petabytes per second of bandwidth, eliminating the chip-to-chip communication bottleneck.",
+    "source_doc": "doc3_datacenter_npus"
+  },
+  {
+    "id": "q9",
+    "question": "What TOPS performance does the Apple A17 Pro Neural Engine achieve?",
+    "expected_answer": "The Apple A17 Pro Neural Engine (2023) achieves 35 TOPS (tera-operations per second).",
+    "source_doc": "doc4_mobile_edge_npus"
+  },
+  {
+    "id": "q10",
+    "question": "What is Apache TVM and what is its key concept of a schedule?",
+    "expected_answer": "Apache TVM is the leading open-source NPU compiler. It introduces the concept of a schedule, which separates the algorithm (what to compute) from the schedule (how to compute it: tiling factors, vectorization, loop order). AutoTVM and Ansor are TVM's automated schedule search systems.",
+    "source_doc": "doc5_npu_software"
+  },
+  {
+    "id": "q11",
+    "question": "Why are raw TOPS figures considered misleading for NPU comparison?",
+    "expected_answer": "Raw TOPS figures are misleading because different vendors use different precision levels (INT4 vs INT8), they assume 100% hardware utilization which real workloads don't achieve, and system-level bottlenecks like PCIe bandwidth and DRAM speed can dominate end-to-end latency.",
+    "source_doc": "doc6_npu_benchmarking"
+  },
+  {
+    "id": "q12",
+    "question": "What is compute-in-memory (CiM) and why is it significant for NPUs?",
+    "expected_answer": "Compute-in-memory (CiM) performs multiply-accumulate operations directly within or adjacent to memory cells, eliminating data movement between compute and memory which is a major energy consumer. Analog CiM implementations use ReRAM, PCM, or flash memory physics to perform analog dot products.",
+    "source_doc": "doc7_future_npus"
+  },
+  {
+    "id": "q13",
+    "question": "What is Intel's Loihi 2 chip and what are its specifications?",
+    "expected_answer": "Intel's Loihi 2 (2021) is a neuromorphic chip that integrates 1 million programmable neurons and 120 million synapses on a single 7nm die, consuming under 1 watt while performing spiking neural network inference.",
+    "source_doc": "doc7_future_npus"
+  },
+  {
+    "id": "q14",
+    "question": "What are the two main phases of LLM inference and how do they differ computationally?",
+    "expected_answer": "The prefill phase processes the input prompt and is compute-bound, mapping well to systolic arrays. The decode phase generates tokens one at a time and is memory-bandwidth-bound, exposing limitations of NPU memory subsystems.",
+    "source_doc": "doc5_npu_software"
+  },
+  {
+    "id": "q15",
+    "question": "What is NVIDIA's 2:4 structured sparsity and what benefit does it provide?",
+    "expected_answer": "NVIDIA's 2:4 structured sparsity, introduced in Ampere and Hopper architectures, requires at least 2 out of every 4 weights to be zero, enabling 2x throughput with minimal accuracy loss.",
+    "source_doc": "doc7_future_npus"
+  }
+]

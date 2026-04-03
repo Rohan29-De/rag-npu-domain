@@ -1,0 +1,70 @@
+id,question,expected,generated,semantic_similarity,rouge1_f1,rougeL_f1,composite_score,source_doc
+q1,Who coined the term 'neuromorphic engineering' and when?,Carver Mead at Caltech coined the term neuromorphic engineering in 1990.,"Carver Mead coined the term 'neuromorphic engineering' in 1990. This is mentioned in both Context 1 and Context 2.
+
+Sources:
+1. Context 1 | Source: doc1_npu_origins.txt
+2. Context 2 | Source: doc1_npu_origins.txt",0.8907089,0.38297872340425526,0.38297872340425526,0.658702,doc1_npu_origins
+q2,What was the Intel ETANN chip and what was its key specification?,"The Intel 80170NX ETANN (Electrically Trainable Analog Neural Network), released in 1989, featured 64 neurons and 10,240 programmable synaptic weights and could perform 2 billion multiply-accumulate operations per second.","The Intel ETANN (Electrically Trainable Analog Neural Network) chip was a neural accelerator released in 1989. Its key specifications included 64 neurons and 10,240 programmable synaptic weights implemented as floating-gate transistors, with the ability to perform 2 billion multiply-accumulate operations per second.
+
+Sources:
+[Context 1 | Source: doc1_npu_origins.txt | Score: 0.5922]",0.90949446,0.6206896551724138,0.6206896551724138,0.7831932,doc1_npu_origins
+q3,What NPU did Apple introduce in 2017 and what was its performance?,Apple introduced the Neural Engine with the A11 Bionic chip in 2017. It was a 2-core unit that could perform 600 billion operations per second and was used for Face ID and augmented reality applications.,"Apple introduced the ""Neural Engine"" NPU with the A11 Bionic chip in 2017. The A11 Neural Engine was a 2-core unit that could perform 600 billion operations per second. It was used for Face ID facial recognition and augmented reality applications.
+
+Sources:
+1. Context 1 | Source: doc1_npu_origins.txt
+2. Context 2 | Source: doc1_npu_origins.txt
+3. Context 3 | Source: doc4_mobile_edge_npus.txt",0.9041514,0.6730769230769229,0.6538461538461539,0.8029762,doc1_npu_origins
+q4,What is a systolic array and how does it work in an NPU?,"A systolic array is a grid of processing elements (PEs) where data flows rhythmically from one PE to the next. Each PE performs a multiply-accumulate (MAC) operation. Google's TPU v1 used a 256x256 systolic array, yielding 65,536 MAC operations per clock cycle.","A systolic array is a grid of processing elements (PEs) where data flows rhythmically from one PE to the next. Each PE performs a MAC (multiply-accumulate) operation, multiplying two inputs and accumulating the result into a running sum. This array is at the heart of every Neural Processing Unit (NPU), allowing for efficient computation by maximizing the throughput of MAC operations while minimizing data movement.
+
+Sources:
+1. Context 1 | Source: doc2_npu_architecture.txt
+2. Context 2 | Source: doc2_npu_architecture.txt",0.83176035,0.5,0.484375,0.69562185,doc2_npu_architecture
+q5,What is weight stationary dataflow in NPU architecture?,"Weight stationary dataflow is a property where weights are loaded once into the systolic array and reused across many input activations, dramatically reducing memory bandwidth pressure.","Weight stationary dataflow is a property in NPU architecture where weights are loaded once and reused across many input activations, dramatically reducing memory bandwidth pressure. 
+
+Sources:
+[Context 1 | Source: doc2_npu_architecture.txt | Score: 0.5657]",0.84108984,0.7096774193548387,0.7096774193548387,0.8071657,doc2_npu_architecture
+q6,What is Apple's Unified Memory Architecture and why is it significant for NPUs?,"Apple's Unified Memory Architecture (UMA), introduced with the M1 chip in 2020, allows the Neural Engine, CPU, and GPU to share the same high-bandwidth LPDDR5 memory pool without copying data across discrete buses, eliminating a major bottleneck in heterogeneous AI workloads.","Apple's Unified Memory Architecture (UMA) allows the Neural Engine, CPU, and GPU to share the same high-bandwidth LPDDR5 memory pool without copying data across discrete buses. This eliminates a major bottleneck and strongly influences system-level performance. Introduced with the M1 chip in 2020, UMA is significant for NPUs as it enables efficient data sharing and reduces data movement, which is a major consumer of energy in nanometer-scale CMOS processes.
+
+Sources:
+[Context 1 | Source: doc2_npu_architecture.txt | Score: 0.7144]",0.866361,0.6299212598425197,0.5196850393700788,0.74730986,doc2_npu_architecture
+q7,What is the Google TPU v4 and what interconnect does it use?,"The TPU v4 (2021) reached 275 teraflops of bfloat16 performance and introduced the Inter-chip Interconnect (ICI), a high-speed optical network linking 4,096 TPU chips into a single logical accelerator called a TPU pod.","The Google TPU v4, released in 2021, reached 275 teraflops of bfloat16 performance. It introduced the Inter-chip Interconnect (ICI), a high-speed optical network that links 4,096 TPU chips into a single logical accelerator called a TPU pod.
+
+Sources:
+[Context 1 | Source: doc3_datacenter_npus.txt | Score: 0.5937]",0.93049264,0.8045977011494253,0.8045977011494253,0.8814466,doc3_datacenter_npus
+q8,What is the Cerebras Wafer Scale Engine and what makes it unique?,"The Cerebras Wafer Scale Engine (WSE) is a single die the size of an entire silicon wafer containing 900,000 AI cores connected by an on-wafer fabric with 220 petabytes per second of bandwidth, eliminating the chip-to-chip communication bottleneck.","The Cerebras Wafer Scale Engine (WSE) is a single die the size of an entire silicon wafer that contains 900,000 AI cores. What makes it unique is its on-wafer fabric, which provides 220 petabytes per second of bandwidth and eliminates the chip-to-chip communication bottleneck entirely. This radical approach allows thousands of accelerators to behave as one giant compute engine.
+
+Sources:
+[Context 1 | Source: doc3_datacenter_npus.txt | Score: 0.5997]
+[Context 5 | Source: doc3_datacenter_npus.txt | Score: 0.2687]",0.89452016,0.6031746031746031,0.6031746031746031,0.76994336,doc3_datacenter_npus
+q9,What TOPS performance does the Apple A17 Pro Neural Engine achieve?,The Apple A17 Pro Neural Engine (2023) achieves 35 TOPS (tera-operations per second).,"The Apple A17 Pro Neural Engine achieves 35 TOPS. 
+
+Sources: 
+Context 1 | Source: doc4_mobile_edge_npus.txt | Score: 0.7440",0.73106617,0.5142857142857143,0.5142857142857143,0.6764627,doc4_mobile_edge_npus
+q10,What is Apache TVM and what is its key concept of a schedule?,"Apache TVM is the leading open-source NPU compiler. It introduces the concept of a schedule, which separates the algorithm (what to compute) from the schedule (how to compute it: tiling factors, vectorization, loop order). AutoTVM and Ansor are TVM's automated schedule search systems.","Apache TVM is the leading open-source NPU compiler, supporting various targets. Its key concept is the introduction of a ""schedule"", which separates the algorithm (what to compute) from the schedule (how to compute it), including aspects such as tiling factors, vectorization, and loop order. This allows for the discovery of high-performance schedules without manual tuning, utilizing automated schedule search systems like AutoTVM and Ansor.
+
+Sources:
+1. Context 1 | Source: doc5_npu_software.txt
+2. Context 2 | Source: doc5_npu_software.txt",0.9411222,0.625,0.5625,0.77921164,doc5_npu_software
+q11,Why are raw TOPS figures considered misleading for NPU comparison?,"Raw TOPS figures are misleading because different vendors use different precision levels (INT4 vs INT8), they assume 100% hardware utilization which real workloads don't achieve, and system-level bottlenecks like PCIe bandwidth and DRAM speed can dominate end-to-end latency.","Raw TOPS figures are considered misleading for NPU comparison because they reflect peak theoretical throughput under ideal conditions, typically dense INT8 matrix multiplication, which rarely corresponds to real-world workload performance. Additionally, different vendors may use different precision levels, and peak TOPS assume 100% hardware utilization, but real models have varying operator mixes, memory-bound phases, and irregular computation graphs that prevent full utilization.
+
+Sources:
+[Context 1 | Source: doc6_npu_benchmarking.txt]
+[Context 5 | Source: doc6_npu_benchmarking.txt]",0.6712207,0.39669421487603307,0.2975206611570248,0.57491994,doc6_npu_benchmarking
+q12,What is compute-in-memory (CiM) and why is it significant for NPUs?,"Compute-in-memory (CiM) performs multiply-accumulate operations directly within or adjacent to memory cells, eliminating data movement between compute and memory which is a major energy consumer. Analog CiM implementations use ReRAM, PCM, or flash memory physics to perform analog dot products.","Compute-in-memory (CiM) is an architectural departure from conventional NPU design, where multiply-accumulate operations are performed directly within or adjacent to memory. This is significant because traditional NPUs separate compute (systolic arrays) from memory (SRAM), and data must shuttle between them on energy-hungry buses, consuming a lot of energy. By performing computations in-memory, CiM architectures can reduce energy consumption.
+
+Sources:
+[Context 1 | Source: doc7_future_npus.txt | Score: 0.7394]",0.8324165,0.4444444444444445,0.3076923076923077,0.63775915,doc7_future_npus
+q13,What is Intel's Loihi 2 chip and what are its specifications?,"Intel's Loihi 2 (2021) is a neuromorphic chip that integrates 1 million programmable neurons and 120 million synapses on a single 7nm die, consuming under 1 watt while performing spiking neural network inference.","Intel's Loihi 2 chip is a neuromorphic chip that integrates 1 million programmable neurons and 120 million synapses on a single 7nm die. It consumes under 1 watt while performing spiking neural network inference. 
+
+Sources:
+[Context 1 | Source: doc7_future_npus.txt | Score: 0.6108]",0.95770586,0.825,0.825,0.89981174,doc7_future_npus
+q14,What are the two main phases of LLM inference and how do they differ computationally?,"The prefill phase processes the input prompt and is compute-bound, mapping well to systolic arrays. The decode phase generates tokens one at a time and is memory-bandwidth-bound, exposing limitations of NPU memory subsystems.","The two main phases of LLM inference are the prefill phase and the decode phase. The prefill phase, which processes the input prompt, is compute-bound and maps well to systolic arrays. In contrast, the decode phase, which generates tokens one at a time, is memory-bandwidth-bound, exposing limitations in many NPU memory subsystems.
+
+Sources:
+[Context 1 | Source: doc5_npu_software.txt | Score: 0.4987]
+[Context 2 | Source: doc5_npu_software.txt | Score: 0.4198]",0.75629616,0.6428571428571429,0.5892857142857143,0.73492455,doc5_npu_software
+q15,What is NVIDIA's 2:4 structured sparsity and what benefit does it provide?,"NVIDIA's 2:4 structured sparsity, introduced in Ampere and Hopper architectures, requires at least 2 out of every 4 weights to be zero, enabling 2x throughput with minimal accuracy loss.","NVIDIA's 2:4 structured sparsity refers to a technique where at least 2 out of every 4 weights must be zero. This technique enables 2x throughput with minimal accuracy loss. In other words, by structuring the sparsity in this specific pattern, NVIDIA's Ampere and Hopper architectures can process data more efficiently, doubling the throughput while maintaining similar accuracy.
+
+Sources:
+[Context 1 | Source: doc7_future_npus.txt | Score: 0.6327]
+[Context 2 | Source: doc7_future_npus.txt | Score: 0.5491]",0.89630485,0.5178571428571428,0.4107142857142857,0.7010343,doc7_future_npus
